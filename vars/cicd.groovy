@@ -6,11 +6,11 @@ def newBuild()
 {
   sh 'mvn package'
 }
-def newDeployment(path, ipAdress, contextPath)
+def newDeployment(filepath, ipAdress, contextPath)
 {
-  sh "scp /var/lib/jenkins/workspace/${Path}/webapp/target/webapp.war ubuntu@${ipAdress}:/var/lib/tomcat9/webapps/${contextPath}"
+  sh "scp /var/lib/jenkins/workspace/${filepath}/webapp/target/webapp.war ubuntu@${ipAdress}:/var/lib/tomcat9/webapps/${contextPath}"
  }
- def Testing(path)
+ def Testing(filepath)
  {
-  sh 'java -jar /var/lib/jenkins/workspace/${path}/testing.jar'
+  sh 'java -jar /var/lib/jenkins/workspace/${filepath}/testing.jar'
  }
